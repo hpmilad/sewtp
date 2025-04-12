@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجامعات والكليات التي تقبل معدلك</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        header {
+            background-color: #11a2e6;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        h1 {
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+        
+        select, input {
+            padding: 10px;
+            font-size: 1.2em;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            background-color: #11a2e6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #results {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #000;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <h1>🎓 دليل التخصصات الجامعية 📖</h1>
+    </header>
+    
+    <h1>الجامعات والكليات التي تقبل معدلك</h1>
+    <div class="container">
+        <select id="branch">
+            <option value="تطبيقي">تطبيقي</option>
+            <option value="أدبي">أدبي</option>
+            <option value="أحيائي">أحيائي</option>
+        </select>
+        <input type="number" id="grade" placeholder="أدخل معدلك" >
+        <br>
+        <button onclick="searchDepartments()">بحث</button>
+        <div id="results"></div>
+    </div>
+    
+    <footer>
+        &copy; 2025 دليل التخصصات الجامعة
+    </footer>
+    
+    <script>
+        const universityData = {
+            "تطبيقي": [
+                { university: "جامعة بغداد", department: "الهندسة", minGrade: 85 },
+                { university: "جامعة المستنصرية", department: "العلوم", minGrade: 70 },
+                { university: "جامعة البصرة", department: "الإدارة والاقتصاد", minGrade: 65 },
+                { university: "جامعة الموصل", department: "الزراعة", minGrade: 60 },
+                { university: "جامعة كربلاء", department: "التقنيات الاحيائية", minGrade: 75 },
+                { university: "جامعة بابل", department: "علوم الحاسوب", minGrade: 80 },
+                { university: "جامعة الانبار", department: "التربية البدنية", minGrade: 55 },
+                { university: "جامعة واسط", department: "الفنون الجميلة", minGrade: 60 },
+                { university: "جامعة ميسان", department: "الآثار", minGrade: 70 },
+                { university: "جامعة القادسية", department: "الإعلام الرقمي", minGrade: 68 }
+            ],
+            "أدبي": [
+                { university: "جامعة بغداد", department: "القانون", minGrade: 80 },
+                { university: "جامعة المستنصرية", department: "الإعلام", minGrade: 70 },
+                { university: "جامعة البصرة", department: "العلوم السياسية", minGrade: 75 },
+                { university: "جامعة الموصل", department: "التربية", minGrade: 60 },
+                { university: "جامعة كربلاء", department: "الآداب", minGrade: 65 },
+                { university: "جامعة بابل", department: "اللغة الإنجليزية", minGrade: 78 },
+                { university: "جامعة الانبار", department: "الفنون المسرحية", minGrade: 55 },
+                { university: "جامعة واسط", department: "علم الاجتماع", minGrade: 68 },
+                { university: "جامعة ميسان", department: "التاريخ", minGrade: 70 },
+                { university: "جامعة بابل", department: "تكنولوجيا المعلومات ", minGrade: 70 }
+            ],
+            "أحيائي": [
+                { university: "جامعة بغداد", department: "الطب", minGrade: 95 },
+                { university: "جامعة المستنصرية", department: "الصيدلة", minGrade: 90 },
+                { university: "جامعة البصرة", department: "طب الأسنان", minGrade: 92 },
+                { university: "جامعة الموصل", department: "التمريض", minGrade: 85 },
+                { university: "جامعة كربلاء", department: "التقنيات الطبية", minGrade: 88 },
+                { university: "جامعة بابل", department: "العلوم الصحية", minGrade: 86 },
+                { university: "جامعة الانبار", department: "التحليلات المرضية", minGrade: 84 },
+                { university: "جامعة واسط", department: "البايولوجي", minGrade: 80 },
+                { university: "جامعة ميسان", department: "الفيزياء الطبية", minGrade: 83 },
+                { university: "جامعة بابل", department: "تكنولوجيا المعلومات ", minGrade: 70 }
+            ]
+        };
+
+        function searchDepartments() {
+            const branch = document.getElementById("branch").value;
+            const grade = parseFloat(document.getElementById("grade").value);
+            const resultsDiv = document.getElementById("results");
+            
+            const eligibleDepartments = universityData[branch].filter(dept => grade >= dept.minGrade);
+            
+            if (eligibleDepartments.length > 0) {
+                resultsDiv.innerHTML = "<h3>الأقسام والجامعات المتاحة:</h3>" + 
+                    eligibleDepartments.map(dept => `<p>${dept.university} - ${dept.department}</p>`).join("");
+            } else {
+                resultsDiv.innerHTML = "<p>لا توجد أقسام متاحة لهذا المعدل.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

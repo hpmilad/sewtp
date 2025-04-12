@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة بابل</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        #buttons {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #toggleButton, #homeButton {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #toggleButton.dark-mode, #homeButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        .collegeList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .collegeCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .collegeCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .collegeCard img {
+            width: 100%;
+            height: 150px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .collegeCard button {
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+        }
+
+        .text1 {
+            text-align: right;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <h1>جامعة بابل</h1>
+        <br><br>
+        <div id="buttons">
+            <button id="toggleButton">🌙</button>
+            <button id="homeButton" onclick="window.location.href='SE.html'">الرئيسية</button>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h1 class="text1">حول جامعة بابل</h1>
+            <h4 class="text1">
+                جامعة بابل واحدة من الجامعات العراقية الكبيرة. تقع في محافظة بابل الواقعة في وسط العراق على ضفاف نهر الفرات. تتألف الجامعة من 21 كلية تتوزع في ثلاثة مجمعات أساسية تقع جميعها في مدينة الحلة.
+                الحرم الجامعي المركزي يقع غربي مدينة الحلة على الطريق الرابط بين بابل والنجف، وهو أكبر المجمعات من حيث المساحة وعدد الكليات و يليه مجمع الكليات الطبية الواقع في وسط مدينة الحلة بحي الاسكان. وتقع كلية الفنون الجميلة على بعد شارع واحد من هذا المجمع.
+                و أخيرا مجمع صغير في شمالي غربي الحلة قريبا من مستشفى مرجان وحي الجزائر. و كانت الجامعة تمتلك حرما أخرا في ناحية القاسم يضم كلية الطب البيطري، قبل أن تنفصل الأخيرة في اواسط 2012 وتصبح تابعة لجامعة القاسم الخضراء حديثة التاسيس والتي أصبح الحرم تابعا لها. تأسست الجامعة في 25/4/1991
+            </h4>
+        </div>
+        <section class="collegeList">
+            <div class="collegeCard">
+                <img src="i7.png">
+                <h3>كلية تكنولوجيا المعلومات </h3>
+                <h3>62</h3>
+                <button onclick="window.location.href='it.html'">تعرف على المزيد</button>
+            </div>
+            <div class="collegeCard">
+                <img src="i9.png">
+                <h3>كلية الهندسة</h3>
+                <h3>84</h3>
+                <button onclick="window.location.href='e.html'">تعرف على المزيد</button>
+            </div>
+            <div class="collegeCard">
+                <img src="i10.png" >
+                <h3>كلية التربية الاساسية</h3>
+                <h3>80</h3>
+                <button onclick="window.location.href='tb.html'">تعرف على المزيد</button>
+            </div>
+            <div class="collegeCard">
+                <img src="i8.png">
+                <h3>كلية القانون</h3>
+                <h3>85</h3>
+                <button onclick="window.location.href='l.html'">تعرف على المزيد</button>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; 2025 جامعة بابل</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelectorAll('.collegeCard').forEach(card => card.classList.toggle('dark-mode'));
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+        });
+    </script>
+</body>
+</html>

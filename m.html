@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة المستقبل الاهلية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #11a2e6;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        #buttons {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #toggleButton, #homeButton {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        #toggleButton:hover, #homeButton:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        #toggleButton.dark-mode, #homeButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        .collegeList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .collegeCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .collegeCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .collegeCard img {
+            width: 100%;
+            height: 180px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .collegeCard button {
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .collegeCard button:hover {
+            background-color: #0e8dc8;
+            transform: scale(1.05);
+        }
+
+        .collegeCard button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .collegeCard button a:hover {
+            text-decoration: underline;
+        }
+
+        .text1 {
+            text-align: right;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <h1>جامعة المستقبل الاهلية</h1>
+        <br><br>
+        <div id="buttons">
+            <button id="toggleButton">🌙</button>
+            <button id="homeButton" onclick="window.location.href='SE.html'">الرئيسية</button>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h1 class="text1">حول جامعة المستقبل الاهلية</h1>
+            <h4 class="text1">
+                جامعة المستقبل هي مؤسسة خاصة متميزة تأسست عام 2010 في محافظة بابل مقابل جامعة بابل على طريق حلة - نجف وتبعد حوالي 100 كيلومتر جنوب بغداد، العراق.
+                تعتبر جامعة المستقبل، المعترف بها رسميًا والمعتمدة من قبل وزارة التعليم العالي والبحث العلمي العراقية، واحدة من الجامعات الرائدة متعددة التخصصات في العراق، واكتسبت سمعة متزايدة على المستويين الإقليمي والعالمي. شهدت الجامعة نموًا ملحوظًا، حيث تقدم الآن 45 برنامجًا جامعيًا عبر 14 كلية في مجالات مثل الطب والهندسة والإدارة والفنون والعلوم الإنسانية.
+                بالإضافة إلى ذلك، تقدم جامعة المستقبل برنامجين للماجستير - هندسة الإلكترونيات والتشريح السريري - تم تصميمهما بالتعاون مع مؤسسات دولية مرموقة.
+            </h4>
+        </div>
+        <section class="collegeList">
+            <div class="collegeCard">
+                <img src="i35.png">
+                <h3>كلية التمريض </h3>
+                <h4>70 معدل</h4>
+                <button><a href="https://uomus.edu.iq/DefaultCol.aspx?colid=19">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <img src="i36.png">
+                <h3>كلية العلوم الادرية</h3>
+                <h4>60 معدل</h4>
+                <button><a href="https://uomus.edu.iq/DefaultCol.aspx?colid=21">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <img src="i37.png" >
+                <h3>كلية الصيدلة </h3>
+                <h4>80 معدل</h4>
+                <button><a href="https://uomus.edu.iq/DefaultCol.aspx?colid=12">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <img src="i38.png">
+                <h3>كلية الفنون الجميلة </h3>
+                <h4>50 معدل</h4>
+                <button><a href="https://uomus.edu.iq/DefaultCol.aspx?colid=26">الموقع الرسمي</a></button>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; 2025 جامعة المستقبل الاهلية</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelectorAll('.collegeCard').forEach(card => card.classList.toggle('dark-mode'));
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+        });
+    </script>
+</body>
+</html>

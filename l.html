@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية  القانون</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        header img {
+            height: 80px;
+            margin-left: 1em;
+        }
+
+        header h1 {
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #toggleButton, #homeButton {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #toggleButton.dark-mode, #homeButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+            text-align: right;
+        }
+
+        .collegeList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .collegeCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 300px;
+            text-align: right;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .collegeCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .collegeCard img {
+            width: 100%;
+            height: 150px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .collegeCard button {
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .collegeCard button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .text1 {
+            text-align: right;
+            margin: 2em;
+        }
+
+        .text1 h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .text1 h4 {
+            margin-bottom: 1.5em;
+        }
+
+        h4 {
+            text-align: right;
+        }
+
+        .text1 button {
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .text1 button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <img src="i8.png" >
+        <h1>كلية القانون</h1>
+        <div id="buttons">
+            <button id="toggleButton">🌙</button>
+            <button id="homeButton" onclick="window.location.href='b.html'">الرئيسية</button>
+        </div>
+    </header>
+    <main>
+        <div class="text1">
+            <h1>حول القانون </h1>
+            <h4>
+                تعد كلية القانون بجامعة بابل من ابرز الصروح العلمية والحقوقية في العراق أذ سعت منذ إنشائها في عام 1988 و التي كانت تابعة حينها لجامعة الكوفة و حتى إنشاء جامعة بابل عام 1991 إلى نشر الوعي والثقافة القانونية وترسيخ مبدأ احترام سيادة القانون لدى الإفراد والمساهمة في بناء دولة المؤسسات من خلال رفد الدوائر القانونية والحقوقية بالكوادر القانونية المزودة بالمعارف الضرورية لممارسة عملها<br>
+                <br>
+                أنشئت كلية القانون بجامعة بابل في سنة 1988 وفتحت أبوابها لاستقبال طلاب السنة الأولى في العام الدراسي 1988– 1989 وكان عددهم 169 طالباً و طالبة ، وأخذ هذا العدد يتضاعف سنوياً حتى بلغ عدد الطلبة والطالبات في نهاية العام الدراسي 2010/2011 حوالي1200 طالب وطالبة ، وقد اختير أعضاء هيئة التدريس بها عند إنشائها من بين أعضاء هيئة التدريس بكلية القانون بجامعة صلاح الدين وجامعة بغداد.
+
+                طبقت الكلية منذ إنشائها ولغاية العام الدراسي 2013-2014 نظام السنة الدراسية حيث يدرس الطالب المواد المقررة عليه موزعة على أربع سنوات دراسية ،ومن العام الدراسي 2014-2015 طبقت النظام الفصلي حيث يدرس الطالب المواد المقررة عليه موزعة على ثمان فصول دراسية وبعد ذلك يمنح الطالب الذي يجتاز هذه المواد بنجاح درجة البكالوريوس في القانون.
+
+                وتجدر الإشارة بأنه قد تم تخريج الدفعة الأولى من طلاب الكلية في العام الدراسي1991/1992 وكان عدد الخريجين آنذاك 115 طالباً وطالبة ، وبعد سنين من العمل وصل عدد الخريجين إلى 244 طالباً وطالبة للعام الجامعي 2019-2020.
+
+                - كلية القانون من الكليات ذات القسم الواحد
+
+                وينقسم قسم القانون الى فرعين
+                <br>
+                <br>فرع القانون العام
+                <br>فرع القانون الخاص
+            </h4>
+            <button><a href="https://law.uobabylon.edu.iq/">الموقع الرسمي</a></button>
+        </div>
+        <section class="collegeList">
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; 2025 كلية القانون</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+        });
+    </script>
+</body>
+</html>

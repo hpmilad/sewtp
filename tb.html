@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية  التربية الاساسية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        header img {
+            height: 80px;
+            margin-left: 1em;
+        }
+
+        header h1 {
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #toggleButton, #homeButton {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #toggleButton.dark-mode, #homeButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+            text-align: right;
+        }
+
+        .collegeList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .collegeCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 300px;
+            text-align: right;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .collegeCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .collegeCard img {
+            width: 100%;
+            height: 150px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .collegeCard button {
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .collegeCard button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .text1 {
+            text-align: right;
+            margin: 2em;
+        }
+
+        .text1 h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .text1 h4 {
+            margin-bottom: 1.5em;
+        }
+
+        h4 {
+            text-align: right;
+        }
+
+        .text1 button {
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .text1 button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <img src="i10.png" alt="شعار الكلية">
+        <h1>كلية التربية الاساسية</h1>
+        <div id="buttons">
+            <button id="toggleButton">🌙</button>
+            <button id="homeButton" onclick="window.location.href='b.html'">الرئيسية</button>
+        </div>
+    </header>
+    <main>
+        <div class="text1">
+            <h1>حول التربية الاساسية </h1>
+            <h4>
+                أسست كلية التربية الأساسية سنة 1994 بإسم (كلية المعلمين) وتم تغيير إسمها إلى (كلية التربية الأساسية) عام 2004، وهي كلية علمية تربوية تسعى إلى إعداد ملاكات تعليمية مؤهلة تربويا وعلميا لتدريس المواد العلمية المختلفة في مراحل الدراسة الابتدائية الأساس فضلا عن البحث العلمي بمجالاته المختلفة المعرفية والنظرية والتطبيقية وتعمل على إكساب الطلبة القيم الأخلاقية والمهنية، وتمكينهم من استخدام الطرائق والتقنيات الحديثة في التدريس والتقويم وممارسة الأنشطة التعليمية ذوات الصلة، فضلاً عن التمكن المعرفي في التخصص الأكاديمي والإتقان الأدائي في التربية العملية وتسعى الكلية إلى ترقية البحث العلمي التربوي، وتطوير المجتمع. وللكلية ستة أقسام علميـــــــة هـــــــي
+                <br><br>
+                اللغة العربية<br>
+                اللغة الإنجليزية<br>
+                التاريخ<br>
+                الجغرافيا<br>
+                التربية الخاصة<br>
+                الرياضيات والحاسوب<br>
+                العلوم: يبدأ التخصص في هذا القسم من المرحلة الثانية
+                <br>، ويشمل تخصصات الكيمياء، الفيزياء، وعلوم الحياة.
+
+                تهدف الكلية إلى إعداد معلمين مؤهلين للتدريس في المدارس الابتدائية والمتوسطة، من خلال تزويدهم بالمعرفة الأكاديمية والمهارات التربوية اللازمة.
+
+                
+                <br>فرص العمل والمسار الوظيفي لخريجي كلية التربية الأساسية:
+                    •	<br>التدريس: العمل كمعلمين في المدارس الابتدائية والمتوسطة.
+                    •	<br>الإشراف التربوي: متابعة وتقييم أداء المعلمين والعملية التعليمية.
+                    •	<br>التخطيط التربوي: المشاركة في وضع المناهج والخطط التعليمية.
+                    •	<br>التدريب والتطوير: تقديم ورش عمل ودورات تدريبية للمعلمين.
+                    •	<br>العمل في مراكز التربية الخاصة: تقديم الدعم التعليمي لذوي الاحتياجات الخاصة.
+
+                تسعى الكلية إلى تطوير مهارات الطلاب في مجالات التدريس والتواصل، بالإضافة إلى تعزيز قدراتهم على استخدام التقنيات الحديثة في العملية التعليمية
+             </h4>
+            <button><a href="https://basiceducation.uobabylon.edu.iq/">الموقع الرسمي</a></button>
+        </div>
+        <section class="collegeList">
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; 2025 كلية التربية الاساسية</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+        });
+    </script>
+</body>
+</html>

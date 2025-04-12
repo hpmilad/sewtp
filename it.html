@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية تكنولوجيا المعلومات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        header img {
+            height: 80px;
+            margin-left: 1em;
+        }
+
+        header h1 {
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #toggleButton, #homeButton {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #toggleButton.dark-mode, #homeButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+            text-align: right;
+        }
+
+        .collegeList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .collegeCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 300px;
+            text-align: right;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .collegeCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .collegeCard img {
+            width: 100%;
+            height: 150px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .collegeCard button {
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .collegeCard button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .text1 {
+            text-align: right;
+            margin: 2em;
+        }
+
+        .text1 h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .text1 h4 {
+            margin-bottom: 1.5em;
+        }
+
+        h4 {
+            text-align: right;
+        }
+
+        .text1 button {
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .text1 button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <img src="i7.png" alt="شعار الكلية">
+        <h1>كلية تكنولوجيا المعلومات</h1>
+        <div id="buttons">
+            <button id="toggleButton">🌙</button>
+            <button id="homeButton" onclick="window.location.href='b.html'">الرئيسية</button>
+        </div>
+    </header>
+    <main>
+        <div class="text1">
+            <h1>حول تكنولوجيا المعلومات</h1>
+            <h4>
+                تأسست 2009-2010 بأسم كلية تكنلوجيا الحاسبات ثم تم تغير اسمها إلى كلية تكنولوجيا المعلومات عام 2012 وذلك لتلائم التطور ومفردات المنهج المقرر وهي من الكليات المتطورة في الجامعة من حيث البنية التحتية والمختبرات والكادر التدريسي الجيد. وتمنح الكلية شهادة البكالوريوس (علوم الحاسوب) وفق الاقسام المدرجة اعلاه. تتبع الكلية نظام الكورسات. الدراسات العليا (الماجستير-الدكتورا) في قسم البرامجيات.
+            </h4>
+            <button><a href="https://it.uobabylon.edu.iq/">الموقع الرسمي</a></button>
+        </div>
+        <section class="collegeList">
+            <div class="collegeCard">
+                <h2>قسم البرمجيات</h2>
+                <h4>
+                    قسم البرمجيات هو أحد اقسام كلية تكنولوجيا المعلومات جامعة بابل،ولديه الدراسة الاولية وايضا لديه دراسات عليا ماجستير ودكتوراه وكما وان القسم تأسس في عام 2009 وساهم في اعداد خريجين اكفاء اثبتوا جدارتهم العلمية والعملية وفي كثير من المحافل الدولية والمحلية من خلال المؤتمرات والندوات والورش والمعارض التي تقام سنويا.اعداد وتأهيل المختصين لتلبية متطلبات سوق العمل بقطاعيه العام والخاص في تخصيص البرمجيات من خلال التنويع في طرق التعلم والتعليم وتدريب الطلاب على تطبيع المعارف والمهارات المكتسبة لحل مشاكل واقعية.
+                    معدل ان لايقل على 62
+                </h4>
+                <button><a href="https://it.uobabylon.edu.iq/department/Default.aspx?cdid=1">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <h2>قسم الشبكات</h2>
+                <h4>
+                    قسم شبكات المعلومات هو احد اقسام كلية تكنولوجيا المعلومات جامعة بابل ، ولديه اربعة مراحل للدراسة الاولية وايضا لديه دراسات عليا
+                    رؤية القسم . المساهمة في تحقيق أهداف الجامعة في التعليم والبحث وخدمة المجتمع في مجال تكنولوجيا المعلومات وبصورة عامة وشبكات المعلومات بصوة خاصة عن طريق توفير مصادر المعلومات وتنميتها وتقديم معارف مختلفة , وادوات تفاعلية , وتدريبات عملية أضافة الى امكانية تصميم وبناء واستكشاف وتأمين شبكات الحواسيب والاستعداد لتكنولوجيا المعلومات والاتصالات والشبكات المهنية .
+                    معدل ان لايقل على 62
+                </h4>
+                <button><a href="https://it.uobabylon.edu.iq/department/Default.aspx?cdid=2">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <h2>قسم الأمن السيبراني</h2>
+                <h4>
+                    قسم الأمن السيبراني هو احد اقسام كلية تكنولوجيا المعلومات في جامعة بابل. تأسس القسم في عام 2024 كامتداد لقسم أمن المعلومات حيث يعتبر من الاختصاصات الدقيقة والمستحدثة لعلوم الحاسوب وتكنولوجيا المعلومات.
+                    يختص قسم الأمن السيبراني بكل ما له علاقة بحماية الفضاء السيبراني ضد الاستخدام غير القانوني فيما يخص البرامج والتطبيقات والانظمة الحاسوبية والرقمية والتي تعمل على الحاسوب الشخصي او مواقع الويب واجهزة الموبايل بشتى انواعها .
+                    معدل ان لايقل على 62
+                </h4><br><br>
+                <button><a href="https://it.uobabylon.edu.iq/department/Default.aspx?cdid=3">الموقع الرسمي</a></button>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; 2025 كلية تكنولوجيا المعلومات</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Majors Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #11a2e6;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        #toggleButton {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #toggleButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        #search {
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        #searchBar {
+            width: 50%;
+            padding: 0.5em;
+            font-size: 1em;
+        }
+
+        #majorsList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .majorCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .majorCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .majorCard img {
+            width: 100%;
+            height: 150px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .majorCard a {
+            display: block;
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .s{
+            background-color: #11a2e6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .filter-unit.select {
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        .filter-unit select {
+            padding: 0.5em;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <h1>🎓 دليل التخصصات الجامعية 📖</h1>
+        <br><br>
+        <button id="toggleButton">🌙</button>
+    </header>
+    <main>
+        <section id="search">
+            <input type="text" id="searchBar" placeholder="Search ....">
+        </section>
+        <div class="filter-unit select">
+            <label for="location_search">الموقع:</label>
+            <select name="first_filter" class="first_filter" id="location_search">
+                <option value="0">الكل</option>
+                <option value="الأنبار - الرمادي">الأنبار - الرمادي</option>
+                <option value="البصرة">البصرة</option>
+                <option value="البصرة  – مقابل مدينة البصرة الرياضية">البصرة – مقابل مدينة البصرة الرياضية</option>
+                <option value="البصرة - الجمهورية - حي الزهراء">البصرة - الجمهورية - حي الزهراء</option>
+                <option value="العراق - النجف">العراق - النجف</option>
+                <option value="العراق - بابل">العراق - بابل</option>
+                <option value="الفلوجة">الفلوجة</option>
+                <option value="القادسية – الديوانية">القادسية – الديوانية</option>
+                <option value="الكوت">الكوت</option>
+                <option value="المثنى">المثنى</option>
+                <option value="الموصل">الموصل</option>
+                <option value="النجف - الكوفة">النجف - الكوفة</option>
+                <option value="بغداد ">بغداد </option>
+                <option value="بغداد - الاعظمية">بغداد - الاعظمية</option>
+                <option value="بغداد - الجادرية">بغداد - الجادرية</option>
+                <option value="بغداد - الزعفرانية">بغداد - الزعفرانية</option>
+                <option value="بغداد - طريق القادسية السريع">بغداد - طريق القادسية السريع</option>
+                <option value="بغداد-شارع فلسطين">بغداد-شارع فلسطين</option>
+                <option value="بغداد, الجادرية">بغداد, الجادرية</option>
+                <option value="تكريت">تكريت</option>
+                <option value="ديالى - بعقوبة">ديالى - بعقوبة</option>
+                <option value="ذي قار">ذي قار</option>
+                <option value="ذي قار – الناصرية المدينة الجامعية">ذي قار – الناصرية المدينة الجامعية</option>
+                <option value="سامراء">سامراء</option>
+                <option value="شارع الصناعة">شارع الصناعة</option>
+                <option value="كربلاء">كربلاء</option>
+                <option value="كركوك">كركوك</option>
+                <option value="محافظة النجف الاشرف">محافظة النجف الاشرف</option>
+                <option value="محافظة ميسان">محافظة ميسان</option>
+                <option value="نينوى - الموصل">نينوى - الموصل</option>
+                <option value="نينوى - تلعفر">نينوى - تلعفر</option>
+                <option value="نينوى – مفرق الحمدانية">نينوى – مفرق الحمدانية</option>
+                <option value="دهوك">دهوك</option>
+            </select>
+        </div>
+        <div class="filter-unit select">
+            <button class="s" onclick="window.location.href='s.html'">حكومي</button>
+            <button class="s" onclick="window.location.href='s.html'">الاهلي</button>
+        </div>
+        <section id="majorsList">
+            <!-- Majors will be listed here -->
+        </section>
+    </main>
+    <br><br><br><br>
+    <footer>
+        <p>&copy; 2025 دليل التخصصات الجامعية</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const majors = [
+                { name: 'جامعة بابل', description: '1991', img: 'i1.png', link: 'b.html', location: 'العراق - بابل' },
+                { name: 'جامعة كربلاء', description: '2002', img: 'i2.png', link: 'k.html', location: 'كربلاء' },
+                { name: 'جامعة وارث الانبياءالاهلية', description: '2017', img: 'i4.png', link: 'w.html', location: 'كربلاء' },
+                { name: ' جامعة المستقبل الاهلية', description: '2010', img: 'i3.png', link: 'm.html', location: 'العراق - بابل' },
+                { name: 'جامعة الامام الكاظم', description: '2004', img: 'i15.png', link: 'https://www.iku.edu.iq/en/babel', location: 'العراق - بابل' },
+                { name: 'جامعة الحلةالاهلية', description: '2011', img: 'i16.png', link: 'https://hilla-unc.edu.iq/', location: 'العراق - بابل' },
+                { name: 'جامعة اسلاميةالاهلية', description: '2004', img: 'i17.png', link: 'https://iu-babil.edu.iq/', location: 'العراق - بابل' },
+                { name: 'جامعة عشتارالاهلية', description: '2023', img: 'i18.png', link: 'https://www.facebook.com/ishtar.university/?locale=ar_AR', location: 'العراق - بابل' },
+                { name: 'جامعة السومرالاهلية', description: '2014', img: 'i19.png', link: 'https://uos.edu.iq/chancellor/about.aspx', location: 'العراق - بابل' },
+                { name: 'جامعة الكوفة ', description: '1987', img: 'i22.png', link: 'https://uokufa.edu.iq/', location: 'النجف - الكوفة' },
+                { name: 'جامعة الفرات الاوسط', description: '2015', img: 'i32.png', link: 'https://atu.edu.iq/', location: ' العراق - النجف '},
+                { name: 'جامعة بغداد', description: '1958', img: 'i20.png', link: 'https://uobaghdad.edu.iq/', location: 'بغداد '},
+                { name: 'جامعة اسراءالاهلية', description: '2013', img: 'i21.png', link: 'https://www.esraa.edu.iq/', location: 'بغداد ' },
+                { name: 'جامعة ابن سينا', description: '2014', img: 'i26.png', link: 'https://www.ibnsina.edu.iq/', location: ' بغداد ' },
+                { name: 'جامعة العراقية', description: '1989', img: 'i25.png', link: 'https://aliraqia.edu.iq/', location: 'بغداد ' },
+                { name: ' جامعة المستنصرية', description: '1233', img: 'i23.png', link: 'https://www.uomustansiriyah.edu.iq/', location: ' بغداد ' },
+                { name: 'جامعة تراث الاهلية', description: '1988', img: 'i27.png', link: 'https://uoturath.edu.iq/', location: ' بغداد ' },
+                { name: ' جامعة الفراهيدي الاهلية', description: '2012', img: 'i28.png', link: 'https://uoalfarahidi.edu.iq/', location: ' بغداد ' },
+                { name: 'جامعة تكنولوجية', description: '1960', img: 'i29.png', link: 'https://uotechnology.edu.iq/index.php/ar/', location: ' بغداد ' },
+                { name: 'جامعة نهرين', description: '1987', img: 'i31.png', link: 'https://nahrainuniv.edu.iq/', location: ' بغداد ' },
+                { name: 'جامعة كركوك ', description: '2003', img: 'i24.png', link: 'https://uokirkuk.edu.iq/ar/', location: 'كركوك' },
+                { name: 'جامعة بصرة', description: '1964', img: 'i30.png', link: 'https://www.uobasrah.edu.iq/', location: 'البصرة' },
+                { name: 'جامعة تكريت', description: '1987', img: 'i33.png', link: 'https://www.tu.edu.iq/index.php/ar/', location: 'سامراء ' },
+                { name: 'جامعة دهوك ', description: '1992', img: 'i34.png', link: 'https://www.uni-med.net/universities/university-of-duhok/', location: 'دهوك' },
+                // Add more majors as needed
+            ];
+
+            const searchBar = document.getElementById('searchBar');
+            const locationSearch = document.getElementById('location_search');
+            const majorsList = document.getElementById('majorsList');
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            function displayMajors(majors) {
+                majorsList.innerHTML = '';
+                majors.forEach(major => {
+                    const majorCard = document.createElement('div');
+                    majorCard.classList.add('majorCard');
+                    majorCard.innerHTML = `
+                        <img src="${major.img}" alt="${major.name}">
+                        <h3>${major.name}</h3>
+                        <p>${major.description}</p>
+                        <a href="${major.link}">تعرف على المزيد</a>
+                    `;
+                    majorsList.appendChild(majorCard);
+                });
+            }
+
+            function filterMajors() {
+                const searchTerm = searchBar.value.toLowerCase();
+                const selectedLocation = locationSearch.value;
+                const filteredMajors = majors.filter(major => {
+                    const matchesSearch = major.name.toLowerCase().includes(searchTerm);
+                    const matchesLocation = selectedLocation === '0' || major.location === selectedLocation;
+                    return matchesSearch && matchesLocation;
+                });
+                displayMajors(filteredMajors);
+            }
+
+            searchBar.addEventListener('input', filterMajors);
+            locationSearch.addEventListener('change', filterMajors);
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelectorAll('.majorCard').forEach(card => card.classList.toggle('dark-mode'));
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+
+            displayMajors(majors);
+        });
+    </script>
+</body>
+</html>

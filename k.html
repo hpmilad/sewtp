@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة كربلاء</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #11a2e6;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        #buttons {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #toggleButton, #homeButton {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        #toggleButton:hover, #homeButton:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        #toggleButton.dark-mode, #homeButton.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        .collegeList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .collegeCard {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .collegeCard.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .collegeCard img {
+            width: 100%;
+            height: 180px; /* ثابت ارتفاع */
+            object-fit: cover; /* لملء الصورة داخل الأبعاد المحددة */
+            border-radius: 8px;
+        }
+
+        .collegeCard button {
+            padding: 0.5em 1em;
+            margin-top: 0.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #11a2e6;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .collegeCard button:hover {
+            background-color: #0e8dc8;
+            transform: scale(1.05);
+        }
+
+        .collegeCard button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .collegeCard button a:hover {
+            text-decoration: underline;
+        }
+
+        .text1 {
+            text-align: right;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <h1>جامعة كربلاء</h1>
+        <br><br>
+        <div id="buttons">
+            <button id="toggleButton">🌙</button>
+            <button id="homeButton" onclick="window.location.href='SE.html'">الرئيسية</button>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h1 class="text1">حول جامعة كربلاء</h1>
+            <h4 class="text1">
+                تأسست جامعة كربلاء في مدينة كربلاء بقرار من وزارة التعليم العالي والبحث المرقم 15 لعام 2002 . ومنذ ذلك الوقت أخذت الجامعة بالأتساع لتصبح واحدة من الجامعات الرفيعة ليس فقط داخل البلد بل على الصعيد الاقليمي ككل. وتعد جامعة كربلاء من المؤسسات الأولى في التعليم العالي والمعرفة من طريقتها الإبتكارية للأدارة الأكاديمية وتطوير الموارد البشرية والعمل للرقي بإمتياز في البحث والتعليم على أصعدة مختلفة من العلم والفن والآنسانيات والطب والعلوم الأجتماعية.تقدم جامعة كربلاء تعلم نوعي للطلبة العراقيين والأجانب حيث توفر دراسات أولية وفق المعايير الدولية وبضمان النوعية.
+            </h4>
+        </div>
+        <section class="collegeList">
+            <div class="collegeCard">
+                <img src="i11.png">
+                <h3>كلية الطب </h3>
+                <button><a href="https://medicine.uokerbala.edu.iq/wp/">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <img src="i12.png">
+                <h3>كلية العلوم</h3>
+                <button><a href="https://science.uokerbala.edu.iq/">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <img src="i13.png" >
+                <h3>كلية الادارة واقتصاد</h3>
+                <button><a href="https://business.uokerbala.edu.iq/wp/">الموقع الرسمي</a></button>
+            </div>
+            <div class="collegeCard">
+                <img src="i14.png">
+                <h3>كلية الزراعة</h3>
+                <button><a href="https://agriculture.uokerbala.edu.iq/wp/">الموقع الرسمي</a></button>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <p>&copy; 2025 جامعة كربلاء</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleButton');
+            const body = document.body;
+
+            toggleButton.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('dark-mode');
+                document.querySelectorAll('.collegeCard').forEach(card => card.classList.toggle('dark-mode'));
+                document.querySelector('footer').classList.toggle('dark-mode');
+                toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+        });
+    </script>
+</body>
+</html>
